@@ -1,9 +1,13 @@
 from dotenv import load_dotenv
 from os import path
-import os
+import os, json, requests, sys
 
 
 load_dotenv()
+
+base_url = "https://www.cradlepointecm.com/api/v2"
+product_name = ["W1850", "W2005"]
+
 
 def get_headers():
     """Return the headers required for API requests."""
@@ -14,6 +18,7 @@ def get_headers():
         "X-ECM-API-KEY": os.getenv("X_ECM_API_KEY"),
         "Content-Type": "application/json",
     }
+
 
 def get_router_id_by_name(device_name):
     """Fetch the router ID for the specified device name from the Cradlepoint API."""
@@ -37,6 +42,7 @@ def get_router_id_by_name(device_name):
 
     print(f"No router found with '{product_name}' in the full product name.")
     sys.exit(1)
+
 
 def do_speedtest(router_id):
     url = f"{base_url}/routers/{router_id}/"
