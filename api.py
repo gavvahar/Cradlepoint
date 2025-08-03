@@ -60,3 +60,12 @@ def get_speedtest(router_id):
     if req.status_code == 401:
         raise Exception("Unauthorized: Invalid Credentials")
     return req
+
+
+max_wait_time = 60
+interval = 15
+elapsed_time = 0
+
+
+while elapsed_time < max_wait_time:
+    response = get_speedtest
