@@ -20,13 +20,14 @@ for csv_file in glob.glob("*.csv"):
 
 def get_headers():
     """Return the headers required for API requests."""
-    return {
+    headers = {
         "X-CP-API-ID": os.getenv("X_CP_API_ID"),
         "X-CP-API-KEY": os.getenv("X_CP_API_KEY"),
         "X-ECM-API-ID": os.getenv("X_ECM_API_ID"),
         "X-ECM-API-KEY": os.getenv("X_ECM_API_KEY"),
         "Content-Type": "application/json",
     }
+    return headers
 
 
 def get_router_id_by_name(device_name):
@@ -116,5 +117,4 @@ for router_id in router_ids:
         elapsed_time += interval
     else:
         errorMessage = "Error: Asset ID not found within the time limit"
-        print(errorMessage)
         print(errorMessage)
