@@ -1,7 +1,7 @@
 import csv, os, glob
 
 CSV_FOLDER = "csv"
-OUTPUT_FOLDER = "csv_reformatted"
+OUTPUT_FOLDER = f"{CSV_FOLDER}_reformatted"
 REMOVE_COLS = {
     "is_individually_configured",
     "desc",
